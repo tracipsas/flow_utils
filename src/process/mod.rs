@@ -42,11 +42,11 @@ impl std::fmt::Debug for ProcessError {
 
 impl std::error::Error for ProcessError {}
 
-pub type ProcessResult = Result<(), ProcessError>;
+pub type ProcessResult<T> = Result<T, ProcessError>;
 
-pub fn run_main_process<F>(main_process: F) -> ()
+pub fn run_main_process<T, F>(main_process: F) -> ()
 where
-    F: FnOnce() -> ProcessResult + Sized,
+    F: FnOnce() -> ProcessResult<T> + Sized,
 {
     match main_process() {
         Ok(_) => std::process::exit(0),
