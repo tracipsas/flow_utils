@@ -1,9 +1,10 @@
 [package]
 name = "flow_utils"
 version = "0.1.0"
-authors = ["Thomas BAGREL <tomsb07@gmail.com>"]
+authors = ["TRACIP SAS <contact@tracip.fr>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+futures = "0.1"
