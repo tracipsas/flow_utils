@@ -56,3 +56,22 @@ where
         }
     }
 }
+
+#[macro_export]
+macro_rules! to_invalid_data {
+    ($msg:literal) => {
+        |e| ProcessError::InvalidData(format!($msg, e))
+    }
+}
+#[macro_export]
+macro_rules! to_unrecoverable {
+    ($msg:literal) => {
+        |e| ProcessError::Unrecoverable(format!($msg, e))
+    }
+}
+#[macro_export]
+macro_rules! to_custom {
+    ($msg:literal, $code:expr) => {
+        |e| ProcessError::Custom($code, format!($msg, e))
+    }
+}
